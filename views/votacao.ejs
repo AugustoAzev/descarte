@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVia - Vote com a comunidade</title>
+    <!-- <link rel="icon" href="img/icons/favicon.png"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles/votacao.css">
+    <style>
+    #loading-screen{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1002;
+    }
+    .progress-bar{
+        width: 80%;
+        height: 8px;
+        background-color: #444;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+    .progress{
+        border-radius: 30px;
+        height: 100%;
+        width: 0;
+        background-color: #ffee00;
+        transition: width 0.5s ease; 
+    }
+    .navbar .menu-faketrigger{
+            right: 14px;
+            position: absolute;
+            z-index: 6;
+            width: 35px;
+            height: 35px;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .navbar .menu-lines{
+            right: 14px;
+            position: absolute;
+            z-index: 5;
+            width: 35px;
+            height: 35px;
+        }
+        .navbar .menu-lines span{
+            display: block;
+            width: 40px;
+            height: 5px;
+            margin-bottom: 10px;
+            background-color: #ccc;
+            border-radius: 3px;
+            transition: all ease .2s;
+        }
+        .navbar .menu-faketrigger:checked ~ .menu-lines span{
+            background-color: #232323;
+        }
+        .navbar .menu-faketrigger:checked ~ .menu-lines span:nth-child(1){
+            transform-origin: 0% 0%;
+            transform: rotate(45deg) scaleX(1.15);
+        }
+        .navbar .menu-faketrigger:checked ~ .menu-lines span:nth-child(2){
+            opacity: 0;
+        }
+        .navbar .menu-faketrigger:checked ~ .menu-lines span:nth-child(3){
+            transform-origin: 0% 100%;
+            transform: rotate(-45deg) scaleX(1.15);
+        }
+        .navbar ul{
+            position: fixed;
+            display: none;
+            z-index: 4;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: calc(100vh - 250px);
+            padding-top: 100px;
+            background-color: #ededed;
+            margin-right: -300px;
+            transition: all ease .2s;
+        }
+        .navbar .menu-faketrigger:checked ~ ul{
+            position: fixed;
+            z-index: 4;
+            margin-right: 0;
+            display: block;
+        }
+        .navbar ul li{ 
+            padding: 10px 30px;
+            color: #232323;
+            font-size: 22px;
+        }
+        .navbar ul li a{
+            color: #232323;
+            text-decoration: none;
+        }
+        .navbar ul li a:hover{
+            color: #493f3f;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <img style="height: 100px;" src="/img/icons/LOGO-ECOVIA-1.png" alt="EcoVia logomarca"> <br><br>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    <nav class="navbar"> 
+        <a href="/">
+            <img id="logo" src="img/icons/LOGO-ECOVIA-1.png" alt="logomarca" 
+            style="max-width: 140px;
+            height: auto;
+            margin: 0 right;
+            display: block;
+            cursor: pointer;">
+        </a>
+
+            <input type="checkbox" class="menu-faketrigger">
+            <div class="menu-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li style="color: #000;font-size: larger;"><h1><%= userName%></h1></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/mapa">Ir ao mapa</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+                <li><a href="/solicitacoes">Minhas solicitações</a></li>
+                <li><a href="/termos" target="_blank">Saiba como funciona?</a></li>
+                <li><a href="/sair">Sair</a></li> 
+            </ul>
+    </nav>
+
+    <button class="botao-tutorial-mapa" id="inicia-tutorial">Como votar no mapa?</button>
+
+    <div id="overlay-tutorial">
+        <div class="card-tutorial" id="card-1">
+            <h3>Bem vindo ao mapa de votação da comunidade!</h3> <br>
+            <p>Se houver solicitações de pontos em sua região, elas aparecerão como pontos laranja, que precisam ser aprovados pela comunidade!</p>
+            <img id="ponto-img" src="/img/tutorial/vote-point.png" alt="pontos de votação"> <br>
+            <p>Você pode clicar neles para ver suas informações antes de votar.</p>
+            <button class="botao-tutorial" id="prox-1">Avançar</button>
+        </div>
+        <div class="card-tutorial" id="card-2">
+            <h3>Tutorial de votação</h3> <br>
+            <p>Ao clicar em um deles, serão exibidos seus dados de acesso como título, resíduos aceitos alí e um ponto de referência.</p>
+            <img id="ponto-info-img" src="/img/tutorial/vote-modal.png" alt="dados do ponto solicitante"> <br>
+            <p>Se você morar na região e conhecer o ponto, pode votar em positivo, se o ponto não existir, vote negativo, e se caso não conhecer, pode deixar de votar.</p>
+            <button class="botao-tutorial" id="prox-1">Avançar</button>
+        </div>
+        <div class="card-tutorial" id="card-3">
+            <h3>Tutorial de votação</h3> <br>
+            <p>Seja ético ao votar em pontos da comunidade. Não vote em solicitações de uma região que você não conhece.</p>
+            <img id="ponto-warning" src="/img/tutorial/warning.png" alt="atenção"> <br>
+            <p>Consulte nossas diretrizes de propostas e responsabilidades antes de votar em um ponto, no link abaixo.</p>
+            <a href="/termos" target="_blank">Saiba como votar</a><br>
+            <button class="botao-tutorial" id="fecha-tutorial">Entendi</button>
+        </div>
+    </div>
+
+    <button id="cancelRouteButton">encerrar rota</button>
+ 
+    <div id="map"></div>
+    <button id="centralizar" class="fas fa-location-arrow"></button>
+   
+    <div id="modal-info" class="modal">
+        <div class="modal-content-ponto"> 
+            <span id="span-fechar" class="close" onclick="fechaModal('modal-info')" alt="fechar tela">&times;</span>
+                <p id="infoContent"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="vote-ponto-message" class="message"></div>
+    <div id="user-info" data-user-id="<%= userId %>"></div>
+    <div id="userData"
+        data-logged="<%= userId ? 'true' : 'false' %>"
+        data-avatar="<%= avatar || '/img/perfil/avatar1.png' %>">
+    </div>
+    
+    <script src="https://unpkg.com/deck.gl@8.8.0/dist.min.js"></script>
+    <script src="scripts/map-vote-setup.js" type="module"></script>
+    <script src="scripts/modals.js"></script>
+    <script src="scripts/tutorial.js"></script>
+</body>
+</html>

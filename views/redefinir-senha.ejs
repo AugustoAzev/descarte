@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVia - Redefinir senha</title>
+    <!-- <link rel="icon" href="/img/icons/favicon.png"> -->
+    <link rel="stylesheet" href="styles/redefinir-senha.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/">
+                <img src="/img/icons/LOGO-ECOVIA-3.png" alt="EcoVia" class="logo">
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="redefinir">
+            <h2>Digite sua nova senha</h2>
+
+            <form id="redefinirForm">
+                <input type="hidden" id="token" name="token" value="">
+
+                <input type="password" id="novaSenha" name="novaSenha" placeholder="Nova Senha" required>
+                <button type="submit" id="btn-redefinir">
+                    <span id="btn-text">Atualizar senha</span>
+                    <span id="spinner" class="spinner" style="display: none;"></span>
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <div id="popup" class="popup">
+        <p id="popup-message"></p>
+        <button onclick="fecharPopup()">Ok</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EcoVia | <a id="copyright-a">NENHUM DIREITO RESERVADO AINDA</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get("token");
+            document.getElementById("token").value = token;
+        });
+
+        document.getElementById("redefinirForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let token = document.getElementById("token").value;
+            let novaSenha = document.getElementById("novaSenha").value;
+            let btnText = document.getElementById("btn-text");
+            let spinner = document.getElementById("spinner");
+
+            btnText.style.display = "none";
+            spinner.style.display = "inline-block";
+
+            fetch('/atualizar-senha', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token: token, novaSenha: novaSenha })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        mostrarPopup("Senha alterada com sucesso!");
+                        setTimeout(() => {
+                            window.location.href = "/";
+                        }, 3000);
+                    } else {
+                        mostrarPopup("Erro: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao processar:', error);
+                    mostrarPopup("Erro ao atualizar senha.");
+                })
+                .finally(() => {
+                    btnText.style.display = "inline";
+                    spinner.style.display = "none";
+                });
+        });
+        function mostrarPopup(mensagem) {
+            document.getElementById("popup-message").innerText = mensagem;
+            document.getElementById("popup").style.display = "block";
+        }
+        function fecharPopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>

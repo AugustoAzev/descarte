@@ -1,0 +1,1454 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Papel, vidro, plastico, metal, não especificado",
+                "Local": "Ufam",
+                "marker-color": "#ffe11f",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43115058980902,
+                    -3.1431461340933424
+                ],
+                "type": "Point"
+            },
+            "id": 0
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Papel, vidro, plastico, metal, não especificado",
+                "Local": "Ufam",
+                "marker-color": "#ffe11f",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43169296278164,
+                    -3.143095560669721
+                ],
+                "type": "Point"
+            },
+            "id": 1
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Papel, vidro, plastico, metal, não especificado",
+                "Local": "Ufam",
+                "marker-color": "#ffe11f",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43246936317749,
+                    -3.1431754761611472
+                ],
+                "type": "Point"
+            },
+            "id": 2
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Papel, vidro, plastico, metal, não especificado",
+                "Local": "Ufam",
+                "marker-color": "#ffe11f",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43226147517042,
+                    -3.1426723698820496
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Papel, vidro, plastico, metal, não especificado",
+                "Local": "Ufam",
+                "marker-color": "#ffe11f",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43204830265073,
+                    -3.14242609352074
+                ],
+                "type": "Point"
+            },
+            "id": 4
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Papel, vidro, plastico, metal, não especificado",
+                "Local": "Praça",
+                "marker-color": "#ffe11f",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44959985462745,
+                    -3.142547874882382
+                ],
+                "type": "Point"
+            },
+            "id": 5
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Papel, vidro, plastico, metal, não especificado",
+                "Local": "Praça",
+                "marker-color": "#ffe11f",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44936514526975,
+                    -3.142751851738595
+                ],
+                "type": "Point"
+            },
+            "id": 6
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Papel, vidro, plastico, metal, não especificado",
+                "Local": "Ufam",
+                "marker-color": "#ffe11f",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43208819456632,
+                    -3.142964363916974
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44391909539509,
+                    -3.143359087700432
+                ],
+                "type": "Point"
+            },
+            "id": 8
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44421384959358,
+                    -3.1433456334963523
+                ],
+                "type": "Point"
+            },
+            "id": 9
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43201762022045,
+                    -3.1262262317694365
+                ],
+                "type": "Point"
+            },
+            "id": 10
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43164129390948,
+                    -3.1253495153648316
+                ],
+                "type": "Point"
+            },
+            "id": 11
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.428230347618,
+                    -3.1172342434707616
+                ],
+                "type": "Point"
+            },
+            "id": 12
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.429293539789924,
+                    -3.119708321815523
+                ],
+                "type": "Point"
+            },
+            "id": 13
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.42866298250516,
+                    -3.118102812604562
+                ],
+                "type": "Point"
+            },
+            "id": 14
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.429590672519865,
+                    -3.120452892200717
+                ],
+                "type": "Point"
+            },
+            "id": 15
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.42991389933242,
+                    -3.121223010442364
+                ],
+                "type": "Point"
+            },
+            "id": 16
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43013819669967,
+                    -3.1217389019088557
+                ],
+                "type": "Point"
+            },
+            "id": 17
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.430416619059244,
+                    -3.1224131543806664
+                ],
+                "type": "Point"
+            },
+            "id": 18
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43071788105604,
+                    -3.123120235477174
+                ],
+                "type": "Point"
+            },
+            "id": 19
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43141331746418,
+                    -3.1248244497692355
+                ],
+                "type": "Point"
+            },
+            "id": 20
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Meio fio",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43091407702656,
+                    -3.1236261362477507
+                ],
+                "type": "Point"
+            },
+            "id": 21
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44636879917759,
+                    -3.1485932513150345
+                ],
+                "type": "Point"
+            },
+            "id": 22
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.4462017156748,
+                    -3.1487260353877815
+                ],
+                "type": "Point"
+            },
+            "id": 23
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Orla",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446558046818936,
+                    -3.1485523946736578
+                ],
+                "type": "Point"
+            },
+            "id": 24
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446353003455684,
+                    -3.1476143002523855
+                ],
+                "type": "Point"
+            },
+            "id": 25
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.445978228578326,
+                    -3.147624841365271
+                ],
+                "type": "Point"
+            },
+            "id": 26
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44596239301323,
+                    -3.147888369136595
+                ],
+                "type": "Point"
+            },
+            "id": 27
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446353003448564,
+                    -3.1478620163626374
+                ],
+                "type": "Point"
+            },
+            "id": 28
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446399110529285,
+                    -3.139341279874415
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44639981827831,
+                    -3.1387140972310306
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44638698096418,
+                    -3.138124466465385
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446403281085026,
+                    -3.139713613768322
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446420397503445,
+                    -3.1409655086738013
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44642267474261,
+                    -3.140256946083369
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44643184315484,
+                    -3.141223566074956
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446427090541434,
+                    -3.1417598043709063
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446436595768816,
+                    -3.142466879226177
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446446805808904,
+                    -3.142850732293084
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446451558422865,
+                    -3.143458151696734
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44647056887705,
+                    -3.1441462435617638
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44648577141382,
+                    -3.1445182358778396
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44648149230946,
+                    -3.145197588874609
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446490050518676,
+                    -3.1460393023516673
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44648928729164,
+                    -3.146376886078869
+                ],
+                "type": "Point"
+            },
+            "id": 44
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.4465064037101,
+                    -3.1473254148646674
+                ],
+                "type": "Point"
+            },
+            "id": 45
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446380847092556,
+                    -3.1377616724863913
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.4463738243104,
+                    -3.137218222656486
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44636329013635,
+                    -3.136597637666398
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.4463527560258,
+                    -3.1362111451108916
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.4463597788088,
+                    -3.135730804885185
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44635626741773,
+                    -3.135082169924445
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44631435703789,
+                    -3.1329474616138526
+                ],
+                "type": "Point"
+            },
+            "id": 52
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446328820789375,
+                    -3.1337634418652414
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.446328824835206,
+                    -3.134391671702687
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44631136301979,
+                    -3.1318753847887564
+                ],
+                "type": "Point"
+            },
+            "id": 55
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Orla",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44562749059841,
+                    -3.149239449360408
+                ],
+                "type": "Point"
+            },
+            "id": 56
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44422214989228,
+                    -3.1435205891750257
+                ],
+                "type": "Point"
+            },
+            "id": 57
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44391839425185,
+                    -3.1435120052533563
+                ],
+                "type": "Point"
+            },
+            "id": 58
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44450077007451,
+                    -3.1501581876160856
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Orla",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44615351654991,
+                    -3.1489449640303775
+                ],
+                "type": "Point"
+            },
+            "id": 60
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.449333718954264,
+                    -3.1424970995678336
+                ],
+                "type": "Point"
+            },
+            "id": 61
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44957878820432,
+                    -3.1424827988753776
+                ],
+                "type": "Point"
+            },
+            "id": 62
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Calçada",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43292202969181,
+                    -3.1378792496242767
+                ],
+                "type": "Point"
+            },
+            "id": 63
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Calçada",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.43222958373387,
+                    -3.125985623648077
+                ],
+                "type": "Point"
+            },
+            "id": 64
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Papel, vidro, plastico, metal, não especificado",
+                "Local": "Ufam",
+                "marker-color": "#ffe11f",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.432109613856056,
+                    -3.1431722815629684
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Praça",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44933659448462,
+                    -3.1427446060195763
+                ],
+                "type": "Point"
+            },
+            "id": 66
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Prefeitura",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.4474880962581,
+                    -3.146151563440256
+                ],
+                "type": "Point"
+            },
+            "id": 68
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Prefeitura",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44721609153957,
+                    -3.146145881548591
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Orla",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -58.44593298795422,
+                    -3.1490398717252788
+                ],
+                "type": "Point"
+            },
+            "id": 69
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Não especificado",
+                "Local": "Calçada",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -45.11298250737161,
+                    -2.5331775955762055
+                ],
+                "type": "Point"
+            },
+            "id": 70
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Calçada",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -45.11526324599723,
+                    -2.532624619101469
+                ],
+                "type": "Point"
+            },
+            "id": 71
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -45.11050023437252,
+                    -2.5326573994427264
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -45.11705616187757,
+                    -2.534368061755444
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -45.11689053528474,
+                    -2.5343113310374576
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -45.10894593158736,
+                    -2.5308472882593662
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Lixeira Pública",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -45.10862871634856,
+                    -2.532461655607719
+                ],
+                "type": "Point"
+            },
+            "id": 76
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Ponto": "Coleta Seletiva",
+                "Residuo": "Não especificado",
+                "Local": "Avenida",
+                "marker-color": "#0f57ff",
+                "marker-size": "medium",
+                "marker-symbol": "circle-stroked"
+            },
+            "geometry": {
+                "coordinates": [
+                    -45.10406119410172,
+                    -2.531934609634547
+                ],
+                "type": "Point"
+            }
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVia - Recuperação de acesso</title>
+    <!-- <link rel="icon" href="/img/icons/favicon.png"> -->
+    <link rel="stylesheet" href="styles/recuperacao.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/">
+                <img src="/img/icons/LOGO-ECOVIA-3.png" alt="EcoVia" class="logo">
+            </a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Recuperar acesso da conta EcoVia</h1>
+    </header>
+
+    <main>
+        <section id="recuperacao">
+            <form id="recuperarForm">
+                <h2>Por favor, informe o seu e-mail de recuperação.</h2>
+
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail de recuperação" required>
+
+                <p>*O e-mail de recuperação é aquele que você informou ao se cadastrar no site. Enviaremos um link para
+                    redefinição.</p>
+                <button type="submit" id="btn-recuperar">
+                    <span id="btn-text">Recuperar</span>
+                    <span id="spinner" class="spinner"></span>
+                </button>
+            </form>
+        </section>
+    </main>
+    <div id="popup" class="popup">
+        <p id="popup-message"></p>
+        <button onclick="fecharPopup()">OK</button>
+    </div>
+
+    <footer>
+        <p id="copyright">&copy; 2024 EcoVia | <a id="copyright-a">NENHUM DIREITO RESERVADO AINDA</a></p>
+    </footer>
+    <script>
+        document.getElementById("recuperarForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let btnText = document.getElementById("btn-text");
+            let spinner = document.getElementById("spinner");
+
+            btnText.style.display = "none";
+            spinner.style.display = "inline-block";
+
+            fetch('/recuperar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao tentar enviar a solicitação.");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById("popup-message").innerText = "E-mail enviado com sucesso!";
+                    } else {
+                        document.getElementById("popup-message").innerText = "Erro: " + data.message;
+                    }
+                    mostrarPopup();
+                })
+                .catch(error => {
+                    console.error('Erro ao processar:', error);
+                    document.getElementById("popup-message").innerText = "Erro ao enviar o e-mail.";
+                    mostrarPopup();
+                })
+                .finally(() => {
+                    btnText.style.display = "inline";
+                    spinner.style.display = "none";
+                });
+        });
+        function mostrarPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+        function fecharPopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>

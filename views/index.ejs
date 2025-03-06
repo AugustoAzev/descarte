@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVia - Busque, encontre e descarte</title>
+    <!-- <link rel="icon" href="/img/icons/favicon.png"> -->
+    <link rel="stylesheet" href="styles/index.css">
+    <style>
+        .navbar .menu-faketrigger{
+            right: 14px;
+            position: absolute;
+            z-index: 6;
+            width: 35px;
+            height: 35px;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .navbar .menu-lines{
+            right: 14px;
+            position: absolute;
+            z-index: 5;
+            width: 35px;
+            height: 35px;
+        }
+        .navbar .menu-lines span{
+            display: block;
+            width: 40px;
+            height: 5px;
+            margin-bottom: 10px;
+            background-color: #ccc;
+            border-radius: 3px;
+            transition: all ease .2s;
+        }
+        .navbar .menu-faketrigger:checked ~ .menu-lines span{
+            background-color: #232323;
+        }
+        .navbar .menu-faketrigger:checked ~ .menu-lines span:nth-child(1){
+            transform-origin: 0% 0%;
+            transform: rotate(45deg) scaleX(1.15);
+        }
+        .navbar .menu-faketrigger:checked ~ .menu-lines span:nth-child(2){
+            opacity: 0;
+        }
+        .navbar .menu-faketrigger:checked ~ .menu-lines span:nth-child(3){
+            transform-origin: 0% 100%;
+            transform: rotate(-45deg) scaleX(1.15);
+        }
+        .navbar ul{
+            position: absolute;
+            display: none;
+            z-index: 4;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: calc(100vh - 250px);
+            padding-top: 100px;
+            background-color: #ededed;
+            margin-right: -300px;
+            transition: all ease .2s;
+        }
+        .navbar .menu-faketrigger:checked ~ ul{
+            margin-right: 0;
+            display: block;
+        }
+        .navbar ul li{ 
+            padding: 10px 30px;
+            color: #232323;
+            font-size: 22px;
+        }
+        .navbar ul li a{
+            color: #232323;
+            text-decoration: none;
+        }
+        .navbar ul li a:hover{
+            color: #493f3f;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar"> 
+        <a href="/">
+            <img id="logo" src="img/icons/LOGO-ECOVIA-3.png" alt="logomarca" 
+            style="max-width: 140px;
+            height: auto;
+            margin: 0 right;
+            display: block;
+            cursor: pointer;">
+        </a>
+
+        <% if (!isLoggedIn) {%>
+            <input type="checkbox" class="menu-faketrigger">
+            <div class="menu-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a onclick="abrirModal('modal-entrar')">Solicitar</a></li>
+                <li><a onclick="abrirModal('modal-entrar')">Entrar</a></li>
+                <li><a onclick="abrirModal('modal-cadastro')">Cadastrar</a></li>
+                <li><a href="/mapa">Ir ao mapa</a></li>
+            </ul>
+        <%} else {%>
+            <input type="checkbox" class="menu-faketrigger">
+            <div class="menu-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>       
+                <li style="color: #000;font-size: larger;"><h1><%= userName%></h1></li>
+                <li><a href="/perfil">Perfil</a></li>
+                <li><a href="/votacao">Votar</a></li>
+                <li><a id="addPointButton">Solicitar</a></li>
+                <li><a href="/solicitacoes">Minhas solicitações</a></li>
+                <li><a href="/sair">Sair</a></li>
+                <li><a href="/mapa">Ir ao mapa</a></li>
+            </ul>
+        <%} %>
+    </nav>
+
+    <div id="addPointModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; width: 90%; max-width: 400px;">
+        <h3 style="color: rgb(0, 0, 0); text-align: center;">Solicitar Ponto de Descarte</h3>
+        <form id="addPointForm" style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+            <label for="titulo" style="color: black;">Título:</label>
+            <select id="titulo" required style="padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                <option value="Coleta Seletiva">Coleta Seletiva</option>
+                <option value="Lixeira">Lixeira</option>
+                <option value="Ecoponto">Ecoponto</option>
+                <option value="Container de Lixo">Container de Lixo</option>
+            </select>
+
+            <label for="residuo" style="color: black;">Resíduo:</label>
+            <select id="residuo" required style="padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                <option value="plástico">Plástico</option>
+                <option value="vidro">Vidro</option>
+                <option value="papel">Papel</option>
+                <option value="metal">Metal</option>
+                <option value="madeira">Madeira</option>
+                <option value="orgânico">Orgânico</option>
+                <option value="recicláveis">Recicláveis</option>
+                <option value="não recicláveis">Não recicláveis</option>
+                <option value="livre">Livre</option>
+            </select>
+
+            <label for="local" style="color: black;">Escolha um ponto de referência:</label>
+            <select id="local" required style="padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                <option value="praça">Praça</option>
+                <option value="calçada">Calçada</option>
+                <option value="avenida">Avenida</option>
+                <option value="meio-fio">Meio-fio</option>
+                <option value="escola">Escola</option>
+                <option value="universidade">Universidade</option>
+                <option value="parque">Parque</option>
+                <option value="área interna">Área interna</option>
+                <option value="prefeitura">Prefeitura</option>
+                <option value="orla">Orla</option>
+                <option value="outro">Outro</option>
+            </select>
+
+            <div style="display: flex; justify-content: center;">
+                <div id="mini-map" style="width: 300px; height: 300px; border: 1px solid #ccc; border-radius: 8px;"></div>
+            </div>
+            <p style="color: #232323;">Selecione no mapa o local do ponto de descarte.</p>
+            <input type="hidden" id="selected-latitude">
+            <input type="hidden" id="selected-longitude">
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" required style="margin: 0;">
+                <p style="color: #ff0000; font-size: 0.85rem; margin: 0;">Declaro que é um local de descarte de resíduos sólidos legal*</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; gap: 10px;">
+                <button type="submit" style="flex: 1; padding: 10px; background-color: #4d4e56; color: white; border: none; border-radius: 5px; cursor: pointer;">Solicitar</button>
+                <button type="button" id="cancelAddPoint" style="flex: 1; padding: 10px; background-color: #4d4e56; color: white; border: none; border-radius: 5px; cursor: pointer;">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="modal-cadastro" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fechaModal('modal-cadastro')" alt="fechar tela">&times;</span>
+            <form id="cadastro-form" action="/cadastrar" method="POST">
+                <h4>Criar um cadastro</h4>
+                <input type="text" name="username" placeholder="Seu nome de usuário" required>
+                <input type="email" name="email" placeholder="E-mail para recuperação" required>
+                <input type="password" id="new-password" name="password" placeholder="Crie sua senha" required>
+                <input type="password" id="confirm-password" placeholder="Confirme sua senha" required>
+                <p id="signup-message" style="color: red; display: none;">As senhas não correspondem.</p>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-entrar" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fechaModal('modal-entrar')">&times;</span>
+            <form id="entrar-form">
+                <h4>Entrar na sua conta</h4>
+                <input type="text" id="username" name="username" placeholder="Seu nome de usuário" required>
+                <input type="password" id="password" name="password" placeholder="Entre com sua senha" required>
+                <a href="/recuperacao" class="esqueceu-senha" target="_blank">esqueceu sua senha?</a>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="entrar-message" class="message"></div>
+    <div id="cadastrar-message" class="message"></div>
+    <div id="add-ponto-message" class="message"></div>
+    <div id="user-info" data-user-id="<%= userId %>"></div>
+
+    <div class="content-overlay">
+        <div id="slogan">
+            <h1>
+                O EcoVia é um software de mapeamento colaborativo de pontos para descarte de resíduos sólidos que permite usuários registrarem estes pontos pela sua cidade e ajudar outras pessoas encontrar o local.
+            </h1>
+            
+        </div>
+        <button id="localizar">encontrar agora!</button>
+    </div>
+
+    <div id="center">
+        <div class="carrossel">
+            <div class="carrossel-slide">
+                <img src="img/image/carrossel1.jpg" alt="imagem 1">
+                <img src="img/image/carrossel2.jpeg" alt="imagem 2">
+                <img src="img/image/carrossel3.webp" alt="imagem 3">
+            </div>
+        </div>
+    </div>
+
+    <div id="video-section">
+        <video width="640" height="360" controls muted><!--inicia mutado-->
+            <source src="img/videos/videoTutorial.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução de vídeos.
+        </video>
+    </div>
+
+    <footer>
+        <dl class="footer-section">
+            <dt>Suporte</dt>
+            <a href="/recuperacao" target="_blank">Recuperar acesso</a><br>
+            <a href="mailto:ecovia.es@gmail.com">ecovia.es@gmail.com</a>
+        </dl>
+        <dl class="footer-section">
+            <dt>Quem somos?</dt>
+            <a onclick="abrirModal('modal-footer-sobre-nos')">Sobre nós</a><br>
+            <a onclick="abrirModal('modal-footer-parceiros')">Agradecimentos</a><br>
+            <a href="https://www.google.com/maps?q=-3.143079836473052,-58.43169426859795" target="_blank">Nosso endereço</a>
+        </dl>
+        <dl class="footer-section">
+            <dt>Diretrizes</dt>
+            <a href="/termos" target="_blank">Nossos termos de responsabilidade</a>
+        </dl>
+        <dl class="footer-logo">
+            <img id="logo" src="img/icons/icet.png" alt="icet">
+        </dl>
+        <dl class="footer-logo">
+            <img id="logo" src="img/icons/ufam.png" alt="ufam">
+        </dl>
+    </footer>
+    
+    <footer id="copy">
+        <p id="copyright">&copy; 2024 EcoVia | <a id="copyright-a">Todos os direitos reservados</a></p>
+    </footer>
+
+    <div id="modal-footer-sobre-nos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fechaModal('modal-footer-sobre-nos')">&times;</span>
+            <h1 style="color: #000;"><strong>Sobre</strong></h1>
+            <p>O EcoVia é um software de mapeamento colaborativo de pontos para descarte de resíduos sólidos que permite usuários registrarem estes pontos pela sua cidade e ajudar outras pessoas encontrar o local.</p>
+             <br>
+            <h1 style="color: #000;"><strong>Equipe</strong></h1>
+            <p>Este software foi desenvolvido pelos alunos Bruno Augusto Azevedo Souza e Edvandro Rodrigues Pereira do curso de Engenharia de Software no âmbito do Instituto de Ciências Exatas e Tecnologias (ICET), da Universidade Federal do Amazonas (UFAM), como resultado da pesquisa realizada sob a orientação do professor Rainer Xavier de Amorim.</p>
+            <p>janeiro de 2025</p>
+        </div>
+    </div>
+
+    <div id="modal-footer-parceiros" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fechaModal('modal-footer-parceiros')">&times;</span>
+            <h1 style="color: #000;"><strong>Agradecimentos</strong></h1><br>
+            <p>Esta pesquisa, realizada no âmbito do <strong>Projeto Samsung-UFAM de Ensino e Pesquisa (SUPER)</strong>, de acordo com o Artigo 39 do Decreto n° 10.521/2020, foi financiada pela Samsung Eletrônica da Amazônia Ltda, nos termos da Lei Federal n° 8.387/1991 através do convênio 001/2020 firmado com a <strong>UFAM</strong> e <strong>FAEPI</strong>, <strong>Brasil</strong>.</p>
+            <div id="img-logo-super">
+                <img style="height: auto; min-width: 300px;" src="/img/icons/super.png" alt="Projeto Super">
+            </div>
+            <p>Este projeto foi desenvolvido pela Task WP3-ICET SE de Engenharia de Sofware do Campus Itacoatiara.</p>
+        </div>
+    </div>
+
+    <script src="scripts/modals.js"></script>
+    <script src="scripts/carrossel.js"></script>
+    <script src="scripts/video.js"></script>
+    <script src="scripts/password.js"></script>
+    <script src="scripts/message.js"></script>
+    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <script src="scripts/minimapa.js" defer></script>
+    <script src="scripts/add-ponto.js"></script>
+    <script>
+        document.getElementById("localizar").addEventListener("click", () => {
+            window.location.href = "/mapa";
+        });
+
+        const addPointButton = document.getElementById("addPointButton");
+        const cancelAddPoint = document.getElementById("cancelAddPoint")
+
+        addPointButton.onclick = () => (addPointModal.style.display = "block");
+        cancelAddPoint.onclick = () => (addPointModal.style.display = "none");
+    </script>
+</body>
+</html>

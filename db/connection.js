@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
  
-const pool = mysql.createPool({
+export const pool = mysql.createPool({
     host: '177.234.144.114',
     user: 'projetosufam_ecovia_admin',
     password: 'P~+IZp*@vil]',
@@ -32,4 +32,3 @@ async function adicionarUsuario(username, email, password, avatar) {
         throw err;
     }
 }
-export { pool, adicionarUsuario };

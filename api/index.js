@@ -73,12 +73,27 @@ app.get('/', (req, res) => {
         userId: user?.userId
     });
 });
-app.get('/mapa', authenticate, (req, res) => {
+app.get('/mapa', (req, res) => {
+    const token = req.cookies.token || req.headers['authorization'];
+    let isLoggedIn = false;
+    let userName = null;
+    let userId = null;
+    let avatar = null;
+
+    if (token) {
+        const decoded = verifyToken(token);
+        if (decoded) {
+            isLoggedIn = true;
+            userName = decoded.userName;
+            userId = decoded.userId;
+            avatar = decoded.avatar;
+        }
+    }
     res.render('mapa', {
-        isLoggedIn: true, 
-        userName: req.user.userName, 
-        userId: req.user.userId,
-        avatar: req.user.avatar
+        isLoggedIn,
+        userName,
+        userId,
+        avatar
     });
 });
 app.get('/solicitacoes', authenticate, (req, res) => {

@@ -1,12 +1,16 @@
 import express from 'express';
 import path from 'path';
-import session from 'express-session';
+// import session from 'express-session';
 import { pool } from '../db/connection.js';
 import { fileURLToPath } from 'url';
 import { enviarEmailBoasVindas } from '../email/boasvindas.js';
 import { enviarEmailRecuperacao } from '../email/emailService.js';
 import crypto from 'crypto';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import cookieParser from 'cookie-parser';
+const SECRET_KEY = 'sua_chave_secreta';
+const TOKEN_EXPIRATION = '1h';
 // const PORT = process.env.PORT || 9990;
 // const PORT = 9876;
  
@@ -14,16 +18,44 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use(session({
-    secret: 'sessao_user_ecovia',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: process.env.NODE_ENV === 'production' }
-}));
+const generateToken = (userId, userName, avatar) => {
+    return jwt.sign({ userId, userName, avatar }, SECRET_KEY, { expiresIn: TOKEN_EXPIRATION });
+};
+
+const verifyToken = (token) => {
+    try {
+        return jwt.verify(token, SECRET_KEY);
+    } catch (err) {
+        return null; // Token inválido ou expirado
+    }
+};
+
+const authenticate = (req, res, next) => {
+    const token = req.cookies.token || req.headers['authorization'];
+    if (!token) {
+        return res.status(401).json({ success: false, message: 'Acesso não autorizado.' });
+    }
+
+    const decoded = verifyToken(token);
+    if (!decoded) {
+        return res.status(401).json({ success: false, message: 'Token inválido ou expirado.' });
+    }
+
+    req.user = decoded; // Adiciona os dados do usuário ao objeto `req`
+    next();
+};
+
+// app.use(session({
+//     secret: 'sessao_user_ecovia',
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { secure: process.env.NODE_ENV === 'production' }
+// }));
 
 app.set('view engine', 'ejs');
 
@@ -33,41 +65,34 @@ app.set('views', path.join(__dirname, '../views'));
 app.use('/img', express.static('public/img'));
 
 app.get('/', (req, res) => {
-    const isLoggedIn = req.session.userId ? true : false;
-    
+    const token = req.cookies.token;
+    const user = token ? verifyToken(token) : null;
     res.render('index', {
-        isLoggedIn, 
-        userName: req.session.userName, 
-        userId: req.session.userId
+        isLoggedIn: !!user, 
+        userName: user?.userName, 
+        userId: user?.userId
     });
 });
-app.get('/mapa', (req, res) => {
-    const isLoggedIn = req.session.userId ? true : false;
+app.get('/mapa', authenticate, (req, res) => {
     res.render('mapa', {
-        isLoggedIn, 
-        userName: req.session.userName, 
-        userId: req.session.userId,
-        avatar: req.session.avatar
+        isLoggedIn: true, 
+        userName: req.user.userName, 
+        userId: req.user.userId,
+        avatar: req.user.avatar
     });
 });
-app.get('/solicitacoes', (req, res) => {
-    const isLoggedIn = req.session.userId ? true : false;
-    if(isLoggedIn){
-        res.render('solicitacoes', {
-            isLoggedIn, 
-            userName: req.session.userName, 
-            userId: req.session.userId
-        });
-    }
-    else{
-        res.redirect('/');
-    } 
+app.get('/solicitacoes', authenticate, (req, res) => {
+    res.render('solicitacoes', {
+        isLoggedIn: true, 
+        userName: req.user.userName, 
+        userId: req.user.userId
+    });
 });
 app.get('/termos', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'termos.html'));
+    res.sendFile(path.join(__dirname, '../views', 'termos.html'));
 });
 app.get('/recuperacao', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'recuperacao.html'));
+    res.sendFile(path.join(__dirname, '../views', 'recuperacao.html'));
 });
 app.post('/recuperar', async (req, res) => {
     try {
@@ -164,6 +189,7 @@ app.post('/cadastrar', async (req, res) => {
         if (!username || !email || !password) {
             return res.status(400).json({ success: false, message: 'Preencha todos os campos obrigatórios.' });
         }
+
         const avatar = '/img/perfil/avatar10.png';
         const connection = await pool.getConnection();
         try {
@@ -173,6 +199,7 @@ app.post('/cadastrar', async (req, res) => {
                 connection.release();
                 return res.status(409).json({ success: false, message: 'Nome de usuário ou e-mail já está em uso.' });
             }
+
             const hashedPassword = await bcrypt.hash(password, 10);
             const insertQuery = `
                 INSERT INTO usuarios (user, email, password, avatar)
@@ -180,14 +207,19 @@ app.post('/cadastrar', async (req, res) => {
             `;
             const [result] = await connection.execute(insertQuery, [username, email, hashedPassword, avatar]);
             connection.release();
+
+            // Gera o token JWT
+            const token = generateToken(result.insertId, username, avatar);
+
+            // Define o token como um cookie
+            res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
+
             try {
                 await enviarEmailBoasVindas(email, username);
             } catch (emailError) {
                 console.warn(`Erro ao enviar e-mail de boas-vindas: ${emailError.message}`);
             }
-            req.session.userId = result.insertId;
-            req.session.userName = username;
-            req.session.avatar = avatar;
+
             return res.redirect('/perfil');
         } catch (dbError) {
             connection.release();
@@ -205,75 +237,80 @@ app.post('/entrar', async (req, res) => {
         const connection = await pool.getConnection();
         const [results] = await connection.query('SELECT * FROM usuarios WHERE user = ?', [username]);
         connection.release();
+
         if (results.length === 0) {
             return res.status(404).json({ success: false, message: 'Nome de usuário não encontrado.' });
         }
+
         const userRecord = results[0];
         const senhaCorreta = await bcrypt.compare(password, userRecord.password);
         if (!senhaCorreta) {
             return res.status(401).json({ success: false, message: 'Sua senha está incorreta.' });
         }
-        req.session.userId = userRecord.id;
-        req.session.userName = userRecord.user;
-        req.session.avatar = userRecord.avatar || '/img/perfil/avatar10.png';
+
+        // Gera o token JWT
+        const token = generateToken(userRecord.id, userRecord.user, userRecord.avatar);
+
+        // Define o token como um cookie
+        res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
 
         return res.status(200).json({ success: true, redirectUrl: '/' });
-
     } catch (err) {
         console.error("Erro ao tentar entrar:", err);
         return res.status(500).json({ success: false, message: 'Erro ao processar login.' });
     }
 });
-app.get('/perfil', async (req, res) => {
-    if (!req.session.userId) {
-        return res.redirect('/');
-    }
+app.get('/perfil', authenticate, async (req, res) => {
+    const { userId, userName, avatar } = req.user;
+
     try {
         const connection = await pool.getConnection();
-        if (!req.session.avatar) {
+        if (!avatar) {
             const query = 'SELECT avatar FROM usuarios WHERE id = ?';
-            const [results] = await connection.execute(query, [req.session.userId]);
+            const [results] = await connection.execute(query, [userId]);
             connection.release();
-            req.session.avatar = results[0]?.avatar || '/img/perfil/avatar1.png';
+            req.user.avatar = results[0]?.avatar || '/img/perfil/avatar1.png';
         }
+
         res.render('perfil', { 
-            userName: req.session.userName, 
-            userId: req.session.userId, 
-            avatar: req.session.avatar 
+            userName, 
+            userId, 
+            avatar: req.user.avatar 
         });
     } catch (error) {
         console.error("Erro ao carregar avatar:", error);
-        res.status(500).json({ message: "Erro ao carregar avatar." }); 
+        res.status(500).json({ message: "Erro ao carregar avatar." });
     }
 });
-app.get('/votacao', async (req, res) => {
-    if (!req.session.userId) {
-        return res.redirect('/');
-    }
+app.get('/votacao', authenticate, async (req, res) => {
+    const { userId, userName, avatar } = req.user;
+
     try {
         const connection = await pool.getConnection();
-        if (!req.session.userName) {
+        if (!userName) {
             const query = 'SELECT user FROM usuarios WHERE id = ?';
-            const [results] = await connection.execute(query, [req.session.userId]);
+            const [results] = await connection.execute(query, [userId]);
             connection.release();
             if (results.length === 0) {
                 return res.status(404).json({ message: "Usuário não encontrado." });
             }
-            req.session.userName = results[0].user;
+            req.user.userName = results[0].user;
         }
+
         res.render('votacao', { 
-            userName: req.session.userName, 
-            userId: req.session.userId,
-            avatar: req.session.avatar 
+            userName: req.user.userName, 
+            userId, 
+            avatar 
         });
     } catch (error) {
         console.error("Erro ao encontrar usuário:", error);
         res.status(500).json({ message: "Erro ao encontrar usuário." });
     }
 });
-app.post('/update-avatar', async (req, res) => {
-    const { userId, avatarPath } = req.body;
-    if (!userId || !avatarPath) {
+app.post('/update-avatar', authenticate, async (req, res) => {
+    const { avatarPath } = req.body;
+    const userId = req.user.userId;
+    if (!avatarPath) {
         return res.status(400).json({ message: "Parâmetros inválidos." });
     }
     try {
@@ -284,56 +321,36 @@ app.post('/update-avatar', async (req, res) => {
         if (results.affectedRows === 0) {
             return res.status(404).json({ message: "Usuário não encontrado." });
         }
-        req.session.avatar = avatarPath;
         res.status(200).json({ message: "Avatar atualizado com sucesso!" });
     } catch (error) {
         console.error("Erro ao atualizar avatar:", error);
         res.status(500).json({ message: "Erro ao atualizar o avatar." });
     }
 });
-app.get('/sair', async (req, res) => {
-    try {
-        await new Promise((resolve, reject) => {
-            req.session.destroy((err) => {
-                if (err) return reject(err);
-                resolve();
-            });
-        });
-        res.redirect('/');
-    } catch (error) {
-        console.error('Erro ao encerrar sessão:', error);
-        res.status(500).send('Erro ao encerrar sessão!');
-    }
+app.get('/sair', (req, res) => {
+    res.clearCookie('token'); // Remove o cookie do token
+    res.redirect('/');
 });
-app.post('/deletarConta', async (req, res) => {
-    const userId = req.session.userId;
+app.post('/deletarConta', authenticate, async (req, res) => {
+    const userId = req.user.userId;
     const { password } = req.body;
-    if (!userId) {
-        return res.redirect('/');
-    }
     try {
         const connection = await pool.getConnection();
-        const query = 'SELECT * FROM usuarios WHERE id = ?';
+        const query = 'SELECT password FROM usuarios WHERE id = ?';
         const [results] = await connection.query(query, [userId]);
         if (results.length === 0) {
             connection.release();
             return res.status(404).send('Usuário não encontrado');
         }
-        const userRecord = results[0];
-        const senhaCorreta = await bcrypt.compare(password, userRecord.password);
+        const senhaCorreta = await bcrypt.compare(password, results[0].password);
         if (!senhaCorreta) {
             connection.release();
             return res.status(401).send('Senha incorreta!');
         }
-        const deleteQuery = 'DELETE FROM usuarios WHERE id = ?';
-        await connection.query(deleteQuery, [userId]);
+        await connection.query('DELETE FROM usuarios WHERE id = ?', [userId]);
         connection.release();
-        req.session.destroy((err) => {
-            if (err) {
-                return res.status(500).send('Erro ao encerrar sessão!');
-            }
-            res.redirect('/');
-        });
+        res.clearCookie('token');
+        res.redirect('/');
     } catch (err) {
         console.error('Erro ao deletar conta:', err);
         return res.status(500).send('Erro ao processar a exclusão da conta.');
@@ -478,9 +495,10 @@ app.get('/geojson-data', async (req, res) => {
         res.status(500).json({ message: "Erro ao buscar dados." });
     }
 });
-app.post('/solicitar-remocao', async (req, res) => {
-    const { userId, pointId } = req.body;
-    if (!userId || !pointId) {
+app.post('/solicitar-remocao', authenticate, async (req, res) => {
+    const { pointId } = req.body;
+    const userId = req.user.userId;
+    if (!pointId) {
         return res.status(400).json({ success: false, message: "Parâmetros inválidos." });
     }
     try {
@@ -498,9 +516,7 @@ app.post('/solicitar-remocao', async (req, res) => {
             [pointId, userId]
         );
         connection.release();
-
         return res.status(200).json({ success: true, message: "Solicitação de remoção enviada!" });
-
     } catch (err) {
         console.error("Erro ao processar solicitação de remoção:", err);
         return res.status(500).json({ success: false, message: "Erro ao registrar solicitação." });
@@ -540,5 +556,4 @@ app.delete('/deletar-solicitacao/:id', async (req, res) => {
         return res.status(500).json({ message: 'Erro ao excluir solicitação.' });
     }
 });
-
 export default app;

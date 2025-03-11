@@ -31,7 +31,7 @@ const verifyToken = (token) => {
     try {
         return jwt.verify(token, SECRET_KEY);
     } catch (err) {
-        return null; // Token inválido ou expirado
+        return null; //token inválido ou expirado
     }
 };
 
@@ -46,7 +46,7 @@ const authenticate = (req, res, next) => {
         return res.status(401).json({ success: false, message: 'Token inválido ou expirado.' });
     }
 
-    req.user = decoded; // Adiciona os dados do usuário ao objeto `req`
+    req.user = decoded; //add os dados do usuário ao objeto `req`
     next();
 };
 
@@ -60,8 +60,6 @@ const authenticate = (req, res, next) => {
 app.set('view engine', 'ejs');
 
 app.set('views', path.join(__dirname, '../views'));
-
-// app.use(express.static(path.join(__dirname, 'views')));
 app.use('/img', express.static('public/img'));
 
 app.get('/', (req, res) => {
@@ -129,7 +127,7 @@ app.post('/recuperar', async (req, res) => {
             const saveTokenQuery = 'INSERT INTO tokens (user_id, token, expires) VALUES (?, ?, ?)';
             await connection.execute(saveTokenQuery, [userId, token, expires]);
             connection.release();
-            const resetLink = `http://projetosufam.com.br/ecovia/redefinir-senha?token=${token}`;
+            const resetLink = `https://descarte.vercel.app//redefinir-senha?token=${token}`;
             try {
                 await enviarEmailRecuperacao(email, resetLink);
                 console.log(`E-mail de recuperação enviado para: ${email}`);
@@ -223,10 +221,10 @@ app.post('/cadastrar', async (req, res) => {
             const [result] = await connection.execute(insertQuery, [username, email, hashedPassword, avatar]);
             connection.release();
 
-            // Gera o token JWT
+            //gera o token JWT
             const token = generateToken(result.insertId, username, avatar);
 
-            // Define o token como um cookie
+            //define o token como um cookie
             res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
 
             try {

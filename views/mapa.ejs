@@ -87,6 +87,7 @@
             right: 0;
             top: 0;
             width: 300px;
+            border-radius: 10px;
             height: calc(100vh - 300px);
             padding-top: 100px;
             background-color: #ededed;
@@ -206,11 +207,15 @@
             <span class="close" onclick="fechaModal('modal-cadastro')" alt="fechar tela">&times;</span>
             <form id="cadastro-form" action="/cadastrar" method="POST">
                 <h4>Criar um cadastro</h4>
-                <input type="text" name="username" placeholder="Seu nome de usuário" required>
+                <label for="username" style="color: #000; font-size: small;">Crie um nome de usuário:</label>
+                <input type="text" name="username" placeholder="Evite informações pessoais" required>
+                <label for="email" style="color: #000; font-size: small;">Informe o e-mail de recuperação de acesso:</label>
                 <input type="email" name="email" placeholder="E-mail para recuperação" required>
+                <label for="password" style="color: #000; font-size: small;">Crie sua senha de acesso:</label>
                 <input type="password" id="new-password" name="password" placeholder="Crie sua senha" required>
+                <label for="confirm-password" style="color: #000; font-size: small;">Confrime sua senha criada:</label>
                 <input type="password" id="confirm-password" placeholder="Confirme sua senha" required>
-                <p id="signup-message" style="color: red; display: none;">As senhas não correspondem.</p>
+                <p id="signup-message" style="color: red; display: none; font-size: small;">As senhas não correspondem.</p>
                 <button type="submit">Cadastrar</button>
             </form>
         </div>
@@ -221,8 +226,10 @@
             <span class="close" onclick="fechaModal('modal-entrar')">&times;</span>
             <form id="entrar-form">
                 <h4>Entrar na sua conta</h4>
-                <input type="text" id="username" name="username" placeholder="Seu nome de usuário" required>
-                <input type="password" id="password" name="password" placeholder="Entre com sua senha" required>
+                <label for="username" style="color: #000; font-size: small;">Informe se nome de usuário:</label>
+                <input type="text" id="username" name="username" placeholder="Ex: usuario123456" required>
+                <label for="password" style="color: #000; font-size: small;">Informe sua senha de acesso:</label>
+                <input type="password" id="password" name="password" placeholder="..." required>
                 <a href="/recuperacao" class="esqueceu-senha" target="_blank">esqueceu sua senha?</a>
                 <button type="submit">Entrar</button>
             </form>

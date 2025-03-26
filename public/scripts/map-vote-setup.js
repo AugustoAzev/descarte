@@ -21,9 +21,12 @@ const deckgl = new deck.DeckGL({
     layers: [] 
 });
 
+// TEMA DE SATELITE
+// https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
+
 const tileLayer = new deck.TileLayer({
     id: 'tile-layer',
-    data: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    data: 'https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
     maxZoom: 17,
     tileSize: 256,
     renderSubLayers: props => {

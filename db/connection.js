@@ -1,9 +1,9 @@
 import mysql from 'mysql2/promise';
  
 export const pool = mysql.createPool({
-    host: '177.128.176.112',
+    host: '177.234.144.114',
     user: 'projetosufam_ecovia_admin',
-    password: '$f8HDL!bJ(r4;~Uv',
+    password: 'P~+IZp*@vil]',
     database: 'projetosufam_ecovia',
     waitForConnections: true,
     connectionLimit: 10,

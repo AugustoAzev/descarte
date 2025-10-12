@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import { enviarEmailBoasVindas } from '../email/boasvindas.js';
 import { enviarEmailRecuperacao } from '../email/emailService.js';
 import crypto from 'crypto';
-import bcrypt from 'bcrypt';
+import bcrypt from "bcryptjs";
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 const SECRET_KEY = 'sua_chave_secreta';

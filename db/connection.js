@@ -1,9 +1,19 @@
 import mysql from 'mysql2/promise';
- 
+//  senh nova: $f8HDL!bJ(r4;~Uv
+// export const pool = mysql.createPool({
+//     host: '177.234.144.114',
+//     user: 'projetosufam_ecovia_admin',
+//     password: 'P~+IZp*@vil]',
+//     database: 'projetosufam_ecovia',
+//     waitForConnections: true,
+//     connectionLimit: 10,
+//     connectTimeout: 10000,
+//     queueLimit: 0
+// });
 export const pool = mysql.createPool({
-    host: '177.234.144.114',
+    host: '177.70.4.10',
     user: 'projetosufam_ecovia_admin',
-    password: 'P~+IZp*@vil]',
+    password: '$f8HDL!bJ(r4;~Uv',
     database: 'projetosufam_ecovia',
     waitForConnections: true,
     connectionLimit: 10,

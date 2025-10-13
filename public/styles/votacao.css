@@ -134,14 +134,14 @@ span{
   font-size: 1em;
   font-weight: bold;
   color: #ffffff;
-  background: linear-gradient(45deg, #FDEA15, #d8b506);
+  background: linear-gradient(45deg, #197acf, #115c9d);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 .modal button[type="submit"]:hover {
-  background: linear-gradient(45deg, #d8b506, #FDEA15);
+  background: linear-gradient(45deg, #115c9d, #197acf);
   transform: scale(1.05);
 }
 .modal-content-ponto{
@@ -281,7 +281,7 @@ span{
   display: block;
 }
 .botao-tutorial{
-  background-color: #FDEA15;
+  background-color: #197acf;
   color: #000000;
   padding: 10px 15px;
   border: none;
@@ -290,7 +290,7 @@ span{
   margin-top: 10px;
 }
 .botao-tutorial:hover{
-  background-color: #F4A73A;
+  background-color: #115c9d;
 }
 #ponto-img{
   height: 150px;

@@ -54,7 +54,7 @@ body {
   display: block;
 }
 .botao-tutorial{
-  background-color: #FDEA15;
+  background-color: #197acf;
   color: #000000;
   padding: 10px 15px;
   border: none;
@@ -63,7 +63,7 @@ body {
   margin-top: 10px;
 }
 .botao-tutorial:hover{
-  background-color: #F4A73A;
+  background-color: #115c9d;
 }
 .message{
   position: absolute;
@@ -150,7 +150,7 @@ body {
   font-size: 1.5em;
   font-weight: bold;
   color: #ffffff;
-  background: linear-gradient(45deg, #FDEA15, #d8b506);
+  background: linear-gradient(45deg, #197acf, #115c9d);
   border: none;
   border-radius: 5px;
   transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
@@ -159,7 +159,7 @@ body {
 #localizar:hover {
   transform: scale(1.05);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(45deg, #d8b506, #FDEA15);
+  background: linear-gradient(45deg, #115c9d, #197acf);
 }
 @keyframes pulse {
   0%, 100% {
@@ -208,7 +208,7 @@ body {
 }
 .modal a{
   cursor: pointer;
-  color: #0011ff;
+  color: #197acf;
 }
 span{
   cursor: pointer;
@@ -263,14 +263,14 @@ span{
   font-size: 1em;
   font-weight: bold;
   color: #ffffff;
-  background: linear-gradient(45deg, #F4A73A, #FDEA15);
+  background: linear-gradient(45deg, #115c9d, #197acf);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 .modal button[type="submit"]:hover{
-  background: linear-gradient(45deg, #FDEA15, #F4A73A);
+  background: linear-gradient(45deg, #197acf, #115c9d);
   transform: scale(1.05);
 }
 #video-section{
@@ -294,7 +294,7 @@ span{
   white-space: nowrap;
 }
 #video-section video{
-  border: 3px solid #FDEA15;
+  border: 3px solid #197acf;
   border-radius: 5px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   max-width: 100%;
@@ -305,7 +305,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
-  background-color: #b68406;
+  background-color: #197acf;
   color: #ffffff;
   padding: 20px;
 }

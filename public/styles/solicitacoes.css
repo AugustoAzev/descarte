@@ -55,11 +55,11 @@ body{
   font-weight: bold;
     width: 100vw;
     padding: 10px; 
-    background: linear-gradient(45deg, #FDEA15, #d8b506);
+    background: linear-gradient(45deg, #197acf, #115c9d);
     cursor: pointer;
 }
 #viewRequestsButton:hover{
-    background: linear-gradient(45deg, #d8b506, #FDEA15);
+    background: linear-gradient(45deg, #115c9d, #197acf);
 }
 #userRequestsTable {
     width: 100%;
@@ -73,7 +73,7 @@ body{
     padding: 8px;
 }
 #userRequestsTable thead {
-    background-color: #94bcf4;
+    background-color: #115c9d;
     color: white;
 }
 #userRequestsTable tbody tr:nth-child(odd) {

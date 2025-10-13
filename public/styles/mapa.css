@@ -82,7 +82,7 @@ span{
 }
 .modal a{
   cursor: pointer;
-  color: #0011ff;
+  color: #197acf;
 }
 .modal .close {
   position: absolute;
@@ -134,14 +134,14 @@ span{
   font-size: 1em;
   font-weight: bold;
   color: #ffffff;
-  background: linear-gradient(45deg, #FDEA15, #d8b506);
+  background: linear-gradient(45deg, #197acf, #115c9d);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 .modal button[type="submit"]:hover {
-  background: linear-gradient(45deg, #d8b506, #FDEA15);
+  background: linear-gradient(45deg, #115c9d, #197acf);
   transform: scale(1.05);
 }
 .route-modal-alert{
@@ -236,7 +236,7 @@ span{
     padding: 20px 30px;
     font-size: 1em;
     font-weight: bold;
-    background: linear-gradient(45deg, #F4A73A, #FDEA15);
+    background: linear-gradient(45deg, #115c9d, #197acf);
     color: white;
     border: none;
     border-radius: 5px;
@@ -249,7 +249,7 @@ span{
 #localizar:hover{
   transform: scale(1.05);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(45deg, #FDEA15, #F4A73A);
+  background: linear-gradient(45deg, #197acf, #115c9d);
 }
 @keyframes pulse {
   0%, 100% {
@@ -341,7 +341,7 @@ span{
   display: block;
 }
 .botao-tutorial{
-  background-color: #FDEA15;
+  background-color: #197acf;
   color: #000000;
   padding: 10px 15px;
   border: none;
@@ -350,7 +350,7 @@ span{
   margin-top: 10px;
 }
 .botao-tutorial:hover{
-  background-color: #F4A73A;
+  background-color: #115c9d;
 }
 #ponto-img{
   height: 160px;

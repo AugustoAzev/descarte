@@ -76,7 +76,7 @@ input[type="password"] {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 input[type="password"]:focus {
-    border-color: #0D6EFD;
+    border-color: #197acf;
     outline: none;
     box-shadow: 0 0 8px rgba(13, 110, 253, 0.4);
 }

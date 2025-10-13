@@ -5,7 +5,7 @@
       box-sizing: border-box;
   }
 body{
-    background-color: #222121;
+    background-color: #c2c4c6;
   }
 .navbar{
     position: sticky;
@@ -14,7 +14,7 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #2e2f32;
+    background-color: white;
 }
 .navbar a:first-child {
     margin-right: auto;

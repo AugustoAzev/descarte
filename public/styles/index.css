@@ -6,7 +6,7 @@
     list-style: none;  
 }
 body {
-  background-color: #191918;
+  background-color: white;
   color: white;
   justify-content: space-between;
   overflow-y: auto;
@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: #2e2f32;
+  background-color: white;
 }
 .navbar a:first-child {
   margin-right: auto;

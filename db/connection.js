@@ -16,7 +16,7 @@ export const pool = mysql.createPool({
     password: '$f8HDL!bJ(r4;~Uv',
     database: 'projetosufam_ecovia',
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 5,
     connectTimeout: 10000,
     queueLimit: 0
 });

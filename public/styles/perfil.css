@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-  background: linear-gradient(-355deg, #000000 40%, rgba(0, 0, 0, 0.3) 40%),
+  background: linear-gradient(-355deg, #197acf 40%, rgba(0, 0, 0, 0.3) 40%),
   url('/img/icons/comuunity.jpg');
   background-size: cover;
   background-position: top right;
@@ -18,7 +18,7 @@ body{
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: #2e2f32;
+  background-color: white;
 }
 .navbar a:first-child {
   margin-right: auto;
@@ -211,7 +211,7 @@ body > *{
 }
 #change-avatar{
   display: inline-block;
-  background-color: #007bff;
+  background-color: #f2fa0d;
   color: white;
   border: none;
   border-radius: 20px;
@@ -221,11 +221,11 @@ body > *{
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 #change-avatar:hover{
-  background-color: #197acf;
+  background-color: #b1b705;
   transform: scale(1.05);
 }
 #change-avatar:active{
-  background-color: #115c9d;
+  background-color: #024fde;
   transform: scale(0.98);
 }
 @media (max-width: 768px) {

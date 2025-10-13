@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px; 
-  background-color: #2e2f32;
+  background-color: rgba(255, 255, 255, 0);
 }
 .navbar a:first-child {
   margin-right: auto;
@@ -20,7 +20,7 @@
 #map{
   z-index: 1;
   position: absolute;
-  top: 60px;
+  top: 0px;
   width: 100%;
   height: calc(100vh - 60px);
 }
@@ -201,10 +201,10 @@ span{
   transition: background-color 0.3s ease;
 }
 #reportIcon{
-  background-color: #00000068;
+  background-color: #197acf;
 }
 #routeIcon{
-  background-color: #3a3c40;
+  background-color: #197acf;
 }
 .icon:hover{
   opacity: 0.8;
@@ -220,14 +220,14 @@ span{
     left: 50%;
     transform: translateX(-50%);
     padding: 15px 20px;
-    background-color: #2e2f32;
+    background-color: #197acf;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 #cancelRouteButton:hover{
-  background-color: #292a2e;
+  background-color: #197acf;
 }
 #localizar {
     position: absolute;
@@ -270,7 +270,7 @@ span{
   bottom: 200px;
   right: 30px;
   padding: 12px;
-  background-color: #2e2f32;
+  background-color: #197acf;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -279,7 +279,7 @@ span{
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 #centralizar:hover{
-  background-color: #292a2e;
+  background-color: #115c9d;
 }
 #mudar-tema{
   position: absolute;
@@ -287,7 +287,7 @@ span{
   bottom: 120px;
   right: 30px;
   padding: 11px;
-  background-color: #2e2f32;
+  background-color: #197acf;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -296,7 +296,7 @@ span{
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 #mudar-tema:hover{
-  background-color: #292a2e;
+  background-color: #115c9d;
 }
 .botao-tutorial-mapa{
   position: absolute;
@@ -305,14 +305,14 @@ span{
   right: 10px;
   padding: 10px 20px;
   font-size: 1em;
-  background-color: #2e2f32;
+  background-color: #197acf;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 .botao-tutorial-mapa:hover{
-  background-color: #292a2e;
+  background-color: #115c9d;
 }
 #overlay-tutorial{
   position: fixed;
@@ -342,7 +342,7 @@ span{
 }
 .botao-tutorial{
   background-color: #197acf;
-  color: #000000;
+  color: white;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;

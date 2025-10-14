@@ -53,6 +53,7 @@ body{
 }
 #viewRequestsButton{
   font-weight: bold;
+  color: white;
     width: 100vw;
     padding: 10px; 
     background: linear-gradient(45deg, #197acf, #115c9d);

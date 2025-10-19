@@ -447,7 +447,7 @@ app.post('/votos', async (req, res) => {
         const checkVotesQuery = `SELECT votos_positivos, votos_negativos, status FROM solicitacoes WHERE id = ?`;
         const [voteCounts] = await connection.query(checkVotesQuery, [pointId]);
         const { votos_positivos, votos_negativos, status } = voteCounts[0];
-        if (votos_positivos >= 10) {
+        if (votos_positivos >= 2) {
             if (status === 'remocao') {
                 const deleteQuery = `DELETE FROM dados WHERE id = ?`;
                 await connection.query(deleteQuery, [pointId]);
@@ -461,7 +461,7 @@ app.post('/votos', async (req, res) => {
             const deleteSolicitacao = `DELETE FROM solicitacoes WHERE id = ?`;
             await connection.query(deleteSolicitacao, [pointId]);
         }
-        else if (votos_negativos >= 10) {
+        else if (votos_negativos >= 2) {
             const deleteSolicitacao = `DELETE FROM solicitacoes WHERE id = ?`;
             await connection.query(deleteSolicitacao, [pointId]);
         }

@@ -5,7 +5,8 @@
   "description": "",
   "scripts": {
     "start": "vercel dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vercel build",
+    "test": "npx playwright test"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "nodemailer": "^6.10.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
     "@vercel/node": "^5.1.11"
   }
 }

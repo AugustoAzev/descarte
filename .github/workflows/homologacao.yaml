@@ -1,31 +1,31 @@
-name: Continuous Integration
-
-on:
-  push:
-    branches: ["develop", "master"]
-  pull_request:
-    branches: ["develop", "master"]
+name: Playwright Tests
+on: [push, pull_request]
 
 jobs:
-  continuous-integration:
+  test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version: "18"
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm ci
+          npx playwright install
 
-      # - name: Install Playwright Browsers
-      #   run: npx playwright install --with-deps
-
-      # - name: Build project
-      #   run: npm run build
-
-      - name: Run tests
+      - name: Run Playwright tests
         run: npx playwright test
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

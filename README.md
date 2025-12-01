@@ -1,4 +1,6 @@
-# Projeto node + JS puro
+# Projeto
+
+## node + JS puro
 
 # Implementação de CI de acordo com as regras do produto
 
@@ -8,8 +10,8 @@
 
 # Rodar
 
-## 'npm run dev'
+## 'npm run dev' || 'vercel dev'
 
-## porta no terminal 8000
+## porta no terminal 3000
 
 # Servidor vercel (provisório)
